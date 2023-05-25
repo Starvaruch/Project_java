@@ -10,9 +10,6 @@
     <name>Project main</name>
     <description>Project main</description>
     <properties>
-        <java.version>11</java.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -65,11 +62,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.1</version>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.3.0</version>
@@ -79,24 +71,19 @@
                             <goal>jar</goal>
                         </goals>
                         <phase>prepare-package</phase>
-                        <configuration>
-                            <outputDirectory>
-                                ${project.parent.basedir}/target/site
-                            </outputDirectory>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
                     <filesets>
                         <fileset>
-                            <directory>${project.parent.basedir}/target/site</directory>
-                        </fileset>
-                        <fileset>
-                            <directory>${project.parent.basedir}/jar</directory>
+                            <directory>Client/target</directory>
+                            <directory>Server/target</directory>
+                            <directory>project_tp/target</directory>
                         </fileset>
                     </filesets>
                 </configuration>
@@ -105,19 +92,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.2.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <phase>prepare-package</phase>
-                        <configuration>
-                            <outputDirectory>
-                                ${project.parent.basedir}/jar
-                            </outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -129,20 +103,17 @@
                         <goals>
                             <goal>copy-dependencies</goal>
                         </goals>
-                        <configuration>
-                            <outputDirectory>
-                                ${project.parent.basedir}/jar
-                            </outputDirectory>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
         </plugins>
-
-        <resources>
-            <resource>
-                <directory>${project.basedir}</directory>
-            </resource>
-        </resources>
     </build>
 </project>
