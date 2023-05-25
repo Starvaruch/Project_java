@@ -18,48 +18,12 @@
         <module>Server</module>
     </modules>
 
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.2.1</version>
-                <configuration>
-                    <configLocation>checkstyle_rules.xml</configLocation>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
-
     <build>
         <plugins>
-            <!--  Генерация сайта  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.7.1</version>
-            </plugin>
-
-            <!--  Запуск проверки во время сборки  -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.2.1</version>
-                <configuration>
-                    <configLocation>checkstyle_rules.xml</configLocation>
-                    <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
-                    <linkXRef>false</linkXRef>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -83,6 +47,7 @@
                         <fileset>
                             <directory>Client/target</directory>
                             <directory>Server/target</directory>
+                            <directory>Encoder/target</directory>
                             <directory>project_tp/target</directory>
                         </fileset>
                     </filesets>

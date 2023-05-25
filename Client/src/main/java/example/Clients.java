@@ -80,11 +80,9 @@ class Clients {
             try {
                 while (true) {
                     str = in.readLine();
-                    if (str.equals("stop")) {
-                        Clients.this.downService();
-                        break;
-                    }
                     System.out.println("Encrypted text: " + str);
+                    Clients.this.downService();
+                    break;
                 }
             } catch (IOException e) {
                 Clients.this.downService();
