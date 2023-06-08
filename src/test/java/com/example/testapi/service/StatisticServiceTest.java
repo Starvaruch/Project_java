@@ -1,7 +1,6 @@
 package com.example.testapi.service;
 
 import com.example.testapi.entity.Article;
-import com.example.testapi.repository.ArticleRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -15,7 +14,6 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 class StatisticServiceTest {

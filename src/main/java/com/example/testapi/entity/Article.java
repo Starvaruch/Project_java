@@ -1,4 +1,4 @@
-package com.example.testapi.entify;
+package com.example.testapi.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
