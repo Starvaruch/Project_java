@@ -38,6 +38,9 @@ public class Article {
     private Map<String, String> content;
 
     @Column
-//    @JsonFormat( shape = JsonFormat.Shape.STRING , pattern = "yyyy-MM-ddTHH:mm:ssZ" )
+    @JsonProperty
+    private String publisherUsername;
+
+    @Column
     private Instant publishDate;
 }
