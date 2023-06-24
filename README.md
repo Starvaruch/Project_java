@@ -11,6 +11,8 @@ API для статей
 
 ## Запуск проекта
 
+Установить Node.js
+
 > `npm install`
 > 
 > `npm install --save-dev webpack`
