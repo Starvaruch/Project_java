@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -32,9 +31,11 @@ public class ArticleService {
 
     private ArticleDto convertEntityToDto(Article article) {
         ArticleDto articleDto = new ArticleDto(article);
-        UserDetails userDetails = userDetailsService.loadUserByUsername(article.getPublisherUsername());
-        if (userDetails != null) {
-            articleDto.setPublisher(new UserDto(userDetails));
+        if(article.getPublisherUsername()!=null){
+            UserDetails userDetails = userDetailsService.loadUserByUsername(article.getPublisherUsername());
+            if (userDetails != null) {
+                articleDto.setPublisher(new UserDto(userDetails));
+            }
         }
         return articleDto;
     }

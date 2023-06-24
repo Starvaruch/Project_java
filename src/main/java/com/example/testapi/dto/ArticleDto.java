@@ -37,4 +37,8 @@ public class ArticleDto {
         this.publisherUsername = article.getPublisherUsername();
         this.publishDate = article.getPublishDate();
     }
+
+    public Article toEntity() {
+        return new Article(id, title, author, content, publisherUsername, publishDate);
+    }
 }

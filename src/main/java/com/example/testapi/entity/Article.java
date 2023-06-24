@@ -1,6 +1,5 @@
 package com.example.testapi.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,6 +40,8 @@ public class Article {
     @JsonProperty
     private String publisherUsername;
 
+
     @Column
+//    @JsonFormat( shape = JsonFormat.Shape.STRING , pattern = "yyyy-MM-ddTHH:mm:ssZ" )
     private Instant publishDate;
 }

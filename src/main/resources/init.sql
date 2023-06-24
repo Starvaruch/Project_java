@@ -20,6 +20,6 @@ create table article_content
 );
 alter table article_content
     add constraint FKr2fwi9p8yrsnwdpuijkai2mx3 foreign key (article_id) references article;
-INSERT INTO PUBLIC.ARTICLE (ID, AUTHOR, PUBLISH_DATE, TITLE) VALUES (1, 'Test1', '2023-06-03 11:12:19.000000', 'Test article ');
+INSERT INTO PUBLIC.ARTICLE (ID, AUTHOR, PUBLISH_DATE, TITLE) VALUES (1, 'Test1', '2023-06-03 11:12:19.000000', 'Test article');
 INSERT INTO PUBLIC.ARTICLE_CONTENT (ARTICLE_ID, CONTENT, CONTENT_KEY) VALUES (1, 'Page1', 'key_1');
 INSERT INTO PUBLIC.ARTICLE_CONTENT (ARTICLE_ID, CONTENT, CONTENT_KEY) VALUES (1, 'Page2', 'key_2');

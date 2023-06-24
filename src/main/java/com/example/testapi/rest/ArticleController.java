@@ -1,7 +1,6 @@
 package com.example.testapi.rest;
 
 import com.example.testapi.dto.ArticleDto;
-import com.example.testapi.entity.Article;
 import com.example.testapi.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +9,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,9 +19,9 @@ public class ArticleController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping(value = "", consumes = {"application/json;charset=UTF-8"})
-    public ResponseEntity<Long> addArticle(@Valid @RequestBody Article article, @AuthenticationPrincipal User user) {
+    public ResponseEntity<Long> addArticle(@RequestBody ArticleDto article, @AuthenticationPrincipal User user) {
         article.setPublisherUsername(user.getUsername());
-        return articleService.saveArticle(article);
+        return articleService.saveArticle(article.toEntity());
     }
 
     @PreAuthorize("permitAll()")
